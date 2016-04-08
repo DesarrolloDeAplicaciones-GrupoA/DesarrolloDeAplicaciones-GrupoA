@@ -8,6 +8,9 @@
  * Controller of the desappGroupABackendApp
  */
 angular.module('desappGroupABackendApp')
-    .controller('LoginCtrl', function() {
-
+    .controller('LoginCtrl', function($scope) {
+        $scope.$on('event:google-plus-signin-success', function(event, authResult) {
+            console.log(authResult);
+            // Send login to server or save into cookie
+        });
     });
