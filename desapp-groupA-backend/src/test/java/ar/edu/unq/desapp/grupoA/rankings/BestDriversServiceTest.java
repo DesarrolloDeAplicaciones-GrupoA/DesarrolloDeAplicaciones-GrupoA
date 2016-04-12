@@ -32,4 +32,10 @@ public class BestDriversServiceTest {
         List<UserModel> users = this.service.allByScoring();
         assertEquals(3, users.get(0).getGoodDriverScores().size());
     }
+
+    @Test
+    public void testReturnUseWithLessGoodScores() {
+        List<UserModel> users = this.service.allByScoring();
+        assertEquals(0, users.get(2).getGoodDriverScores().size());
+    }
 }
