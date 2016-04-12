@@ -1,5 +1,6 @@
 package ar.edu.unq.desapp.grupoA.models;
 
+import ar.edu.unq.desapp.grupoA.repos.UserRepository;
 import ar.edu.unq.desapp.grupoA.services.scoring.ScoringModel;
 
 import java.util.ArrayList;
@@ -122,5 +123,9 @@ public class UserModel implements ScoringModel {
 
     public void markBadScoresAsApplied() {
         this.getAccompanistBadScores().stream().forEach(Score::applied);
+    }
+
+    public List<Score> getGoodDriverScores() {
+        return this.driverScores.stream().filter(Score::isGood).collect(Collectors.toList());
     }
 }
