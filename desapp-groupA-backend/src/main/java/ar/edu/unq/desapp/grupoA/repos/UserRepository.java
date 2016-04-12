@@ -20,4 +20,8 @@ public class UserRepository {
     public int count() {
         return this.users.size();
     }
+
+    public List<UserModel> all() {
+        return new ArrayList<>(this.users);
+    }
 }

@@ -23,4 +23,13 @@ public class UserRepositoryTest {
         this.repository.addUser(new UserModelTestFactory().getUser());
         assertEquals(1, this.repository.count());
     }
+
+    @Test
+    public void testReturnAllUsers() {
+        UserModel user = new UserModelTestFactory().getUser();
+        this.repository.addUser(user);
+        List<UserModel> users = this.repository.all();
+        assertEquals(users.get(0), user);
+        assertEquals(1, users.size());
+    }
 }
